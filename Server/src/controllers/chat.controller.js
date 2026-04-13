@@ -37,3 +37,33 @@ const getOrCreateConversation = asyncHandler(async (req, res) => {
     const conversation = await ChatService.getOrCreateConversation(userId, otherUserId);
     res.status(200).json(new ApiResponse(200, conversation));
 });
+
+const getMessages = asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    const { conversationId } = req.params;
+    const { page = 1, limit = 50 } = req.query;
+
+    if (!userId) throw new ApiError(401, "Unauthorized");
+
+    const messages = await ChatService.getMessages(conversationId, parseInt(page), parseInt(limit));
+    res.status(200).json(new ApiResponse(200, messages));
+});
+
+const sendMessage = asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    const { conversationId, receiverId, text } = req.body;
+
+    if (!userId) throw new ApiError(401, "Unauthorized");
+
+    const message = await ChatService.sendMessage(userId, receiverId, conversationId, text);
+    res.status(201).json(new ApiResponse(201, message, "Message sent"));
+});
+
+module.exports = {
+    syncUser,
+    getUsers,
+    getConversations,
+    getOrCreateConversation,
+    getMessages,
+    sendMessage,
+};
