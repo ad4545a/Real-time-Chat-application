@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" shape-rendering="crispEdges">
+  <!-- Lime background -->
+  <rect width="100" height="100" fill="#CAFF00"/>
+  <!-- Inner black border -->
+  <rect x="5" y="5" width="90" height="90" fill="none" stroke="#000000" stroke-width="5"/>
+  <!-- Lightning bolt -->
+  <polygon points="61,10 33,53 51,53 39,90 67,47 49,47" fill="#000000"/>
+</svg>
