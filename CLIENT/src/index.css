@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Core Palette ───────────────────────────────────── */
+  --color-base:      #0D0D0D;
+  --color-surface:   #141414;
+  --color-surface-2: #1E1E1E;
+  --color-surface-3: #282828;
+  --color-accent:    #CAFF00;
+  --color-accent-dk: #A3CC00;
+  --color-danger:    #FF4040;
+  --color-wire:      #FFFFFF;
+
+  /* ── Text ───────────────────────────────────────────── */
+  --color-text:  #FFFFFF;
+  --color-muted: #666666;
+  --color-dim:   #333333;
+
+  /* ── Legacy aliases (honoured in hooks / badges) ────── */
+  --color-void:   #0D0D0D;
+  --color-ink:    #0D0D0D;
+  --color-ghost:  #1E1E1E;
+  --color-panel:  #141414;
+  --color-border: #282828;
+  --color-neon:   #CAFF00;
+  --color-glow:   #CAFF00;
+  --color-spark:  #FF4040;
+  --color-mint:   #00FFA3;
+
+  /* ── Fonts ──────────────────────────────────────────── */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body:    "DM Sans", sans-serif;
+  --font-mono:    "JetBrains Mono", monospace;
+}
+
+/* ── Global Reset ──────────────────────────────────────── */
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: "DM Sans", sans-serif;
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar { width: 3px; height: 3px; }
+  ::-webkit-scrollbar-track { background: #141414; }
+  ::-webkit-scrollbar-thumb { background: #CAFF00; }
+}
+
+/* ── Design System Utilities ───────────────────────────── */
+@layer utilities {
+  .shadow-neo    { box-shadow: 4px 4px 0px #CAFF00; }
+  .shadow-neo-sm { box-shadow: 2px 2px 0px #CAFF00; }
+  .shadow-hard   { box-shadow: 4px 4px 0px #000000; }
+  .shadow-hard-sm{ box-shadow: 2px 2px 0px #000000; }
+  .shadow-white  { box-shadow: 4px 4px 0px #FFFFFF; }
+
+  .neo-grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+}
+
+/* ── Components ────────────────────────────────────────── */
+@layer components {
+  /* Card */
+  .neo-card {
+    background: #141414;
+    border: 2px solid #FFFFFF;
+    box-shadow: 4px 4px 0px #CAFF00;
+  }
+
+  /* Button base */
+  .neo-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    padding: 0.625rem 1.25rem;
+    transition: box-shadow 80ms ease, transform 80ms ease;
+    user-select: none;
+  }
+  .neo-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Accent variant (lime bg, black text/border) */
+  .neo-btn-accent {
+    background: #CAFF00;
+    color: #000000;
+    border-color: #000000;
+  }
+  .neo-btn-accent:not(:disabled):hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px #000000;
+  }
+  .neo-btn-accent:not(:disabled):active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  /* Ghost variant (transparent, white border) */
+  .neo-btn-ghost {
+    background: transparent;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+  }
+  .neo-btn-ghost:not(:disabled):hover {
+    color: #CAFF00;
+    border-color: #CAFF00;
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px #CAFF00;
+  }
+  .neo-btn-ghost:not(:disabled):active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  /* Danger variant */
+  .neo-btn-danger {
+    background: #FF4040;
+    color: #FFFFFF;
+    border-color: #000000;
+  }
+  .neo-btn-danger:not(:disabled):hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px #000000;
+  }
+
+  /* Input */
+  .neo-input {
+    width: 100%;
+    background: #1E1E1E;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    padding: 0.625rem 0.875rem;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color 80ms, box-shadow 80ms;
+  }
+  .neo-input::placeholder { color: #666666; }
+  .neo-input:focus {
+    border-color: #CAFF00;
+    box-shadow: 2px 2px 0px #CAFF00;
+  }
+
+  /* Backward-compat aliases used in error/retry UI */
+  .btn-primary {
+    background: #CAFF00;
+    color: #000000;
+    border: 2px solid #000000;
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    padding: 0.625rem 1.25rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 80ms, box-shadow 80ms;
+  }
+  .btn-primary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px #000;
+  }
+  .btn-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  .input-field {
+    width: 100%;
+    background: #1E1E1E;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    padding: 0.625rem 0.875rem;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color 80ms, box-shadow 80ms;
+  }
+  .input-field::placeholder { color: #666666; }
+  .input-field:focus {
+    border-color: #CAFF00;
+    box-shadow: 2px 2px 0px #CAFF00;
+  }
+
+  /* Legacy glass (kept for any un-rewritten usages) */
+  .glass      { background: rgba(20,20,20,0.9);  border: 1px solid rgba(255,255,255,0.08); }
+  .glass-dark { background: rgba(13,13,13,0.95); border: 1px solid rgba(255,255,255,0.06); }
+  .neon-glow  { box-shadow: 0 0 20px rgba(202,255,0,0.3); }
+}
+
+/* ── Keyframes ──────────────────────────────────────────── */
+@keyframes msgSlideIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.msg-enter { animation: msgSlideIn 0.18s ease forwards; }
