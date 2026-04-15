@@ -3,12 +3,6 @@
 > **WebSocket-powered real-time messaging. No latency. No clutter. Just the pure signal.**
 
 Pulse is a full-stack, real-time chat application built with the MERN stack (MongoDB, Express, React, Node.js) featuring WebSocket communication via Socket.IO, Clerk authentication, and a stunning neo-brutalist UI design.
-
-![Status](https://img.shields.io/badge/Status-In%20Development-yellow)
-![License](https://img.shields.io/badge/License-MIT-blue)
-![Node](https://img.shields.io/badge/Node.js-18+-green)
-![React](https://img.shields.io/badge/React-19-blue)
-
 ---
 
 ## 📑 Table of Contents
