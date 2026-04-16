@@ -228,7 +228,7 @@ Start the development server:
 npm run dev
 ```
 
-The backend runs on `http://localhost:5000`.
+The backend runs on `https://mini-backend-a35q.onrender.com`.
 
 ### 3. Setup Frontend (CLIENT)
 
@@ -251,7 +251,7 @@ Start the dev server:
 npm run dev
 ```
 
-The frontend runs on `http://localhost:5173`.
+The frontend runs on `https://frountend-mini.vercel.app`.
 
 ---
 
