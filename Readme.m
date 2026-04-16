@@ -5,23 +5,6 @@
 Pulse is a full-stack, real-time chat application built with the MERN stack (MongoDB, Express, React, Node.js) featuring WebSocket communication via Socket.IO, Clerk authentication, and a stunning neo-brutalist UI design.
 ---
 
-## 📑 Table of Contents
-
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Architecture](#-architecture)
-- [Folder Structure](#-folder-structure)
-- [Getting Started](#-getting-started)
-- [Environment Variables](#-environment-variables)
-- [API Endpoints](#-api-endpoints)
-- [Socket Events](#-socket-events)
-- [Deployment](#-deployment)
-- [3-Week Development Plan](#-3-week-development-plan)
-- [Contributing](#-contributing)
-- [License](#-license)
-
----
-
 ## ✨ Features
 
 | Feature | Description |
